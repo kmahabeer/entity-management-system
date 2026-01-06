@@ -34,8 +34,11 @@ jobs:
         with:
           config: '.markdownlint.json'
           args: 'docs/'
+      - name: Check Jekyll version
+        run: bundle exec jekyll --version
+        working-directory: docs
       - name: Build with Jekyll
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --verbose
         working-directory: docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
