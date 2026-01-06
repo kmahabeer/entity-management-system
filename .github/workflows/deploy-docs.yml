@@ -30,10 +30,10 @@ jobs:
           bundler-cache: true
           working-directory: docs
       - name: Lint Markdown
-        uses: avto-dev/markdown-lint@v1
+        uses: davidanson/markdownlint-cli2-action@v1
         with:
           config: '.markdownlint.json'
-          args: 'docs/'
+          globs: 'docs/**/*.md'
       - name: Check Jekyll version
         run: bundle exec jekyll --version
         working-directory: docs
@@ -55,4 +55,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
