@@ -29,6 +29,11 @@ jobs:
           ruby-version: '3.1'
           bundler-cache: true
           working-directory: docs
+      - name: Lint Markdown
+        uses: avto-dev/markdown-lint@v1
+        with:
+          config: '.markdownlint.json'
+          args: 'docs/'
       - name: Build with Jekyll
         run: bundle exec jekyll build
         working-directory: docs
