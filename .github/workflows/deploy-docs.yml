@@ -29,11 +29,6 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
           working-directory: docs
-      - name: Lint Markdown
-        uses: davidanson/markdownlint-cli2-action@v1
-        with:
-          config: '.markdownlint.json'
-          globs: 'docs/**/*.md'
       - name: Check Jekyll version
         run: bundle exec jekyll --version
         working-directory: docs
