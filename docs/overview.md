@@ -10,6 +10,14 @@ permalink: /overview/
 
 An ***entity*** is any canonical object the DMS cares about: a file, digital asset, URL, document, reference, derived artifact, etc. EMS exists to make authoritative decisions about entities while delegating all execution to downstream systems. It is the DMS's **spine**.
 
+EMS decides:
+
+- what something is
+- what should happen to it
+- what its current state is
+
+EMS does not execute work. It decides and coordinates.
+
 ## Purpose
 
 EMS exists to impose coherence on a distributed system. It provides a single, authoritative layer that:
