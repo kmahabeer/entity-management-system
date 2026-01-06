@@ -2,6 +2,93 @@
 
 I've incorporated CI/CD pipeline setup (including Terraform for infrastructure), QA processes, and deployment stages (test/staging then production). These are integrated into relevant phases to ensure incremental delivery. The plan remains focused on EMS core responsibilities.
 
+## Documentation Site Design
+
+### Current Jekyll Structure
+
+- Base Jekyll site with Minima theme
+- Title: Entity Management System
+- Existing pages: index.md (home), about.md (about)
+- Config: Basic with minima theme
+
+### Proposed Page Hierarchy
+
+- **Home** (`/`): index.md
+	- Introduction and navigation
+- **Overview** (`/overview/`): overview.md
+	- Detailed project overview
+- **Architecture** (`/architecture/`): architecture.md
+	- System architecture and components
+- **API Docs** (`/api/`): api/index.md
+	- API documentation home
+	- Subpages:
+		- `/api/entities/`: api/entities.md - Entity management endpoints
+		- `/api/workflows/`: api/workflows.md - Workflow endpoints
+		- `/api/policies/`: api/policies.md - Policy endpoints
+
+### Content Outlines
+
+#### Home Page
+
+- Title: Entity Management System
+- Brief description: Orchestration service for entity lifecycle management
+- Key features: Identity assignment, state tracking, workflow coordination
+- Navigation links to Overview, Architecture, API Docs
+
+#### Overview Page
+
+- What is an Entity?
+- EMS Purpose and Responsibilities
+- What EMS Is Not
+- EMS in the Overall System (with diagram)
+- Goals and Non-Goals
+
+#### Architecture Page
+
+- High-level system diagram:
+
+  ```txt
+  [ API / UI Clients ]
+            |
+            v
+  [ Entity Management System (EMS) ]
+            |
+            v
+  [ Routing / Scheduling Middleware ]
+            |
+            v
+  [ Processing Microservices ]
+  ```
+
+- Component explanations
+- Data flow and relationships
+
+#### API Docs
+
+- API Base URL and Authentication
+- Endpoints:
+	- `POST /entities` - Register new entity
+	- `GET /entities/{id}` - Retrieve entity details
+	- `PUT /entities/{id}` - Update entity metadata
+	- `GET /entities/{id}/status` - Get entity status
+	- `POST /workflows` - Issue workflow intent
+	- `GET /workflows/{id}` - Get workflow status
+	- `GET /policies` - List applicable policies
+
+### Configuration Changes
+
+- Add plugins: `jekyll-sitemap`, `jekyll-seo-tag`
+- Add collections for API docs:
+
+  ```yaml
+  collections:
+    api:
+      output: true
+      permalink: /api/:name/
+  ```
+
+- Update description and add navigation if needed
+
 ## Phase 1: Documentation
 
 **Goal**: Establish a professional documentation site to maintain project knowledge, API specs, and guides. This provides a foundation for collaboration and user onboarding.
